@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+	default-lazy-init="true">
+	<!-- 国际化和'热'加载文件(不用重启应用). -->
+	<bean id="tplMessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="cacheSeconds" value="0"/>
+		<property name="basenames">
+			<list>
+				<value>/WEB-INF/languages/jeecms_tpl/messages</value>
+			</list>
+		</property>
+	</bean>
+	<!--标签-->
+	
+	<!--后台权限标签-->
+	<bean id="cms_perm" class="com.dgut.main.web.PermistionDirective"/>
+	
+	<!--SERVICE-->
+		<bean id="adminMng" class="com.dgut.main.manager.impl.AdminMngImpl"/>
+		<bean id="adminLogMng" class="com.dgut.main.manager.impl.AdminLogMngImpl"/>
+		<bean id="roleMng" class="com.dgut.main.manager.impl.RoleMngImpl"/>
+		<bean id="adminAuthenMng" class="com.dgut.main.manager.impl.AuthenticationMngImpl"/>
+		<bean id="chapterMng" class="com.dgut.main.manager.impl.ChapterMngImpl" />
+		<bean id="sectionMng" class="com.dgut.main.manager.impl.SectionMngImpl" />
+		<bean id="articleMng" class="com.dgut.main.manager.impl.ArticleMngImpl" />
+		<bean id="noticeMng" class="com.dgut.main.manager.impl.NoticeMngImpl" />
+ 	<!--dao-->
+
+	<bean id="adminDao" class="com.dgut.main.dao.impl.AdminDaoImpl"/>
+	<bean id="adminLogDao" class="com.dgut.main.dao.impl.AdminLogDaoImpl"/>
+	<bean id="roleDao" class="com.dgut.main.dao.impl.RoleDaoImpl"/>
+	<bean id="adminAuthenDao" class="com.dgut.main.dao.impl.AuthenticationDaoImpl"/>
+	<bean id="chapterDao" class="com.dgut.main.dao.impl.ChapterDaoImpl" />
+	<bean id="sectionDao" class="com.dgut.main.dao.impl.SectionDaoImpl" />
+	<bean id="articleDao" class="com.dgut.main.dao.impl.ArticleDaoImpl" />
+	<bean id="noticeDao" class="com.dgut.main.dao.impl.NoticeDaoImpl" />
+	
+</beans>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dgut.main.entity">
+	<class name="Chapter" table="chapter">
+		<meta attribute="sync-DAO">false</meta>
+		<cache usage="read-write"/>
+		<id name="id" type="integer" column="chapter_id"><generator class="identity"/></id>
+		<property name="name" column="name" type="string" not-null="true" length="100"/>
+		<property name="priority" column="priority" type="integer" not-null="true" length="11"/>
+		<property name="register_time" column="register_time" type="timestamp" not-null="true"/>
+		<property name="lastUpdate_time" column="last_update_time" type="timestamp" not-null="true" />
+		<set name="sectionSet" inverse="true" cascade="all" order-by="section_id asc">
+		<key column="chapter_id" />
+		<one-to-many class="com.dgut.main.entity.Section"/>
+		</set>
+	</class>
+</hibernate-mapping>

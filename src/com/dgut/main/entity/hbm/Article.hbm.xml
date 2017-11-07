@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dgut.main.entity">
+	<class name="Article" table="article">
+		<meta attribute="sync-DAO">false</meta>
+		<cache usage="read-write"/>
+		<id name="id" type="integer" column="article_id"><generator class="identity"/></id>
+		<property name="title" column="title" type="string" not-null="true" length="100"/>
+		<property name="fileUrl" column="fileUrl" type="string" not-null="true" length="100"/>
+		<property name="label" column="label" type="string" not-null="true" length="100"/>
+		<many-to-one name="section" column="section_id" class="com.dgut.main.entity.Section"  cascade="save-update" />
+		<property name="register_time" column="register_time" type="timestamp" not-null="true"/>
+		<property name="lastUpdate_time" column="last_update_time" type="timestamp" not-null="true" />
+		<many-to-one name="admin" column="admin_id" class="com.dgut.main.entity.Admin" cascade="save-update"/>
+	</class>
+</hibernate-mapping>
