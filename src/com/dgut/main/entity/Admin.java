@@ -11,7 +11,7 @@ import com.dgut.main.entity.base.BaseAdmin;
 public class Admin extends BaseAdmin implements PriorityInterface {
 	private static final long serialVersionUID = 1L;
 
-
+        //角色id
 	public Integer getRoleId() {
 		Role role = getRole();
 		if (role == null) {
